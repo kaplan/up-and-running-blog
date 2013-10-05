@@ -13,7 +13,7 @@ class Blog < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
   set :articles, []
 
-  get('/') { markdown "# A Blog!" }
+  # get('/') { markdown "# A Blog!" }
 
   # loop through all the article files
   Dir.glob "#{root}/articles/*.md" do |file|
@@ -45,7 +45,7 @@ class Blog < Sinatra::Base
   articles.sort_by! { |article| article.date }
   articles.reverse!
 
-  get '/' do |variable|
+  get '/' do
     erb :index
   end
 end
