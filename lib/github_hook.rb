@@ -18,7 +18,7 @@ class GithubHook < Sinatra::Base
     last_modified settings.commit_date
   end
 
-  get '/update' do
+  post '/update' do
     settings.parse_git
 
     app.settings.reset!
