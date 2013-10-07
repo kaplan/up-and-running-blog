@@ -18,6 +18,7 @@ class GithubHook < Sinatra::Base
     last_modified settings.commit_date
   end
 
+  # this is where the server should pull when GitHub gets an update.
   post '/update' do
     settings.parse_git
 
