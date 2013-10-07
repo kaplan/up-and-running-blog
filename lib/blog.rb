@@ -3,7 +3,6 @@ require 'github_hook'
 require 'ostruct'
 require 'time'
 
-
 class Blog < Sinatra::Base
   use GithubHook
 
