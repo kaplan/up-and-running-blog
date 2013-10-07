@@ -11,6 +11,7 @@ class Blog < Sinatra::Base
   # The generated path is treated as being relative to that path.
   set :root, File.expand_path('../../', __FILE__)
   set :articles, []
+  set :app_file, __FILE__
 
   # get('/') { markdown "# A Blog!" }
 
