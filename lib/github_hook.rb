@@ -3,7 +3,6 @@ require 'time'
 
 class GithubHook < Sinatra::Base
   def self.parse_git
-    "ok???"
     # Parse hash and date from the git log command.
     sha1, date = `git log HEAD~1..HEAD --pretty=format:%h^%ci`.strip.split('^')
     set :commit_hash, sha1
@@ -29,7 +28,8 @@ class GithubHook < Sinatra::Base
     content_type :txt
     if settings.autopull?
       # Pipe stderr to stdout to make sure we display everything.
-      `git pull 2>&1`
+      # `git pull 2>&1`
+      `git pull`
     else
       "ok"
     end
